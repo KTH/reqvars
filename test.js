@@ -3,7 +3,7 @@ const reqvars = require('./index')
 
 test('should throw an error if one variable is missing from the variables object', async t => {
   t.throws(() => {
-    reqvars.throwIfMissingEnvVar({ foo: 'bar' }, {})
+    reqvars.throwIfMissing({ foo: 'bar' }, {})
   })
 })
 
