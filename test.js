@@ -8,6 +8,6 @@ test('should throw an error if one variable is missing from the variables object
 })
 
 test('should do nothing if all the required variables are present', async t => {
-  reqvars.throwIfMissingEnvVar({ foo: 'bar' }, { foo: 'bar' })
+  reqvars.throwIfMissing(['foo'], { foo: 'bar' })
   t.pass()
 })
