@@ -11,3 +11,9 @@ test('should do nothing if all the required variables are present', async t => {
   reqvars.throwIfMissing(['foo'], { foo: 'bar' })
   t.pass()
 })
+
+test('should throw error if one environment variable is missing', async t => {
+  t.throws(() => {
+    reqvars.throwIfMissingRequiredEnvVariable('.env.with-one-required-variable')
+  })
+})

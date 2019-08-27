@@ -1,4 +1,5 @@
 const dotenv = require('dotenv')
+const fs = require('fs')
 module.exports = {
   throwIfMissing (required = [], objWithVariables) {
     // Double check that required environment variables are set
@@ -8,5 +9,11 @@ module.exports = {
         throw new Error(msg)
       }
     }
+  },
+  throwIfMissingRequiredEnvVariable (filename = '') {
+    const requiredFile = dotenv.parse(fs.readFileSync(filename))
+    const requiredVariables = Object.keys(requiredFile)
+    this.throwIfMissing(requiredVariables, process.env)
   }
+
 }
