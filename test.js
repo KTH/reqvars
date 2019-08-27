@@ -1,4 +1,13 @@
 import test from 'ava'
-test('should throw an error if one environment variable is missing', async t => {
+const reqvars = require('./index')
+
+test('should throw an error if one variable is missing from the variables object', async t => {
+  t.throws(() => {
+    reqvars.throwIfMissingEnvVar({ foo: 'bar' }, {})
+  })
+})
+
+test('should do nothing if all the required variables are present', async t => {
+  reqvars.throwIfMissingEnvVar({ foo: 'bar' }, { foo: 'bar' })
   t.pass()
 })
