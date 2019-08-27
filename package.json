@@ -1,5 +1,5 @@
 {
-  "name": "reqvars",
+  "name": "@kth/reqvars",
   "version": "1.0.0",
   "description": "a short function for verifying that process.env contains required variables",
   "main": "index.js",
