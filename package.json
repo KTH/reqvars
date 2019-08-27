@@ -1,0 +1,17 @@
+{
+  "name": "reqvars",
+  "version": "1.0.0",
+  "description": "a short function for verifying that process.env contains required variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.1.0"
+  },
+  "devDependencies": {
+    "ava": "^2.3.0"
+  }
+}
