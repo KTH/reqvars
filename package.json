@@ -4,7 +4,7 @@
   "description": "a short function for verifying that process.env contains required variables",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "standard && ava"
   },
   "author": "",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "dotenv": "^8.1.0"
   },
   "devDependencies": {
-    "ava": "^2.3.0"
+    "ava": "^2.3.0",
+    "standard": "^14.1.0"
   }
 }
