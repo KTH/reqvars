@@ -19,7 +19,7 @@ module.exports = {
     const filePath = specificationFilePath || path.resolve(process.cwd(), '.env.in')
     const requirements = dotenv.parse(fs.readFileSync(filePath))
 
-    for (const [requiredVariable] in requirements) {
+    for (const requiredVariable in requirements) {
       throwIfMissing(requiredVariable)
     }
   }

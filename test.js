@@ -1,25 +1,47 @@
-import test from 'ava'
-const reqvars = require('./index')
+const test = require('ava')
 
-test('should throw an error if one variable is missing from the variables object', async t => {
+test('Should throw if an specified variable is not set', t => {
+  const reqvars = require('.', {})
   t.throws(() => {
-    reqvars.throwIfMissing({ foo: 'bar' }, {})
+    reqvars.throwIfMissing('missing_variable')
   })
 })
 
-test('should do nothing if all the required variables are present', async t => {
-  reqvars.throwIfMissing(['foo'], { foo: 'bar' })
-  t.pass()
-})
+test('Should not throw if an specified variable is set', t => {
+  process.env.VARIABLE = 'value'
+  const reqvars = require('.', {})
 
-test('should throw error if one environment variable is missing', async t => {
-  t.throws(() => {
-    reqvars.throwIfMissingRequiredEnvVariable('.env.with-one-required-variable')
+  t.notThrows(() => {
+    reqvars.throwIfMissing('VARIABLE')
   })
+  delete process.env.VARIABLE
 })
 
-test('should not throw error if all environment variable are present ', async t => {
-  process.env.FOO = 'BAR'
-  reqvars.throwIfMissingRequiredEnvVariable('.env.with-one-required-variable')
-  t.pass()
+test('Should not throw if a variable is set to empty string', t => {
+  process.env.VARIABLE2 = ''
+  const reqvars = require('.', {})
+
+  t.notThrows(() => {
+    reqvars.throwIfMissing('VARIABLE2')
+  })
+  delete process.env.VARIABLE2
+})
+
+test('should not throw if the spec file is met', t => {
+  process.env.FOO = 'bar'
+  const reqvars = require('.')
+
+  t.notThrows(() => {
+    reqvars.check('.env.with-one-required-variable')
+  })
+
+  delete process.env.FOO
+})
+
+test('should throw if the spec file is not met', t => {
+  const reqvars = require('.', {})
+
+  t.throws(() => {
+    reqvars.check('.env.with-one-required-variable')
+  })
 })
