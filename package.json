@@ -1,6 +1,6 @@
 {
   "name": "@kth/reqvars",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "a short function for verifying that process.env contains required variables",
   "main": "index.js",
   "scripts": {
