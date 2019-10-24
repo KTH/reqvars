@@ -8,7 +8,7 @@ const argv = yargs
     yargs.positional('files', {
       describe: 'Files to look at.',
 
-      default: '*/**.js'
+      default: '**/*.js'
     })
   })
   .help('h')
