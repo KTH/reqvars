@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** This is a file with four environmental variables */
 
 process.env.VARIABLE_ONE

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** This is a file with 7 environmental variables */
 require('dotenv').config({})
 const cron = require('./cron')
@@ -13,7 +14,7 @@ log.createLogger({
 })
 
 log.info([
-  `App started with the following env variables (secrets are not shown)`,
+  'App started with the following env variables (secrets are not shown)',
   `PROXY_PATH=${process.env.PROXY_PATH}`,
   `CANVAS_API_URL=${process.env.CANVAS_API_URL}`,
   `UG_URL=${process.env.UG_URL}`,
@@ -22,7 +23,7 @@ log.info([
 
 log.context({ trigger: 'http' }, () => {
   server.listen(process.env.PORT || 3000, () => {
-    log.info(`Express server started!`)
+    log.info('Express server started!')
   })
 })
 

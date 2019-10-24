@@ -16,7 +16,6 @@ test('List the only variable in a file', t => {
   )
 })
 
-
 test('List the 4 variables in a file', t => {
   t.deepEqual(
     utils.listVariables(path.resolve(__dirname, './fixtures/test0003.js')),

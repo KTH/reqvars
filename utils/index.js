@@ -13,7 +13,7 @@ module.exports = {
   },
 
   /** Check if "variable" is present in the "filePath" */
-  presentIn(filePath) {
+  presentIn (filePath) {
     return variable => true
   }
 }
