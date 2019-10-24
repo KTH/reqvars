@@ -63,6 +63,8 @@ DB_PASS=
 
 ## (experimental) CLI
 
+This feature works only in `node >= 12`
+
 You can run `npx @kth/reqvars "*/**.js` to get a list of all required environmental variables in your project.
 
 Note that the command will search for the "process.env" string so we don't guarantee that the list is correct.
