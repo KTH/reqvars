@@ -23,3 +23,10 @@ test('List the 4 variables in a file', t => {
     ['VARIABLE_ONE', 'VARIABLE_TWO', 'VARIABLE_THREE', 'VARIABLE_FOUR']
   )
 })
+
+test('List the 7 variables in a file', t => {
+  t.deepEqual(
+    utils.listVariables(path.resolve(__dirname, './fixtures/test0004.js')),
+    ['NODE_ENV', 'LOG_LEVEL', 'PROXY_PATH', 'CANVAS_API_URL', 'UG_URL', 'KOPPS_API_URL', 'PORT']
+  )
+})
