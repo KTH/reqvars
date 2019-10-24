@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "a short function for verifying that process.env contains required variables",
   "main": "index.js",
+  "bin": "./bin/index.js",
   "scripts": {
     "test": "standard && ava"
   },
@@ -13,6 +14,8 @@
   },
   "devDependencies": {
     "ava": "^2.3.0",
-    "standard": "^14.1.0"
+    "globby": "^10.0.1",
+    "standard": "^14.1.0",
+    "yargs": "^14.2.0"
   }
 }
