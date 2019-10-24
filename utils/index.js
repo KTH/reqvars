@@ -3,14 +3,13 @@ module.exports = {
   /** List all the variables in the "filePath" */
   listVariables (filePath) {
     const content = fs.readFileSync(filePath, { encoding: 'utf-8' })
-    const re = /process\.env\.(\w+)/
-    const match = content.match(re)
-
-    if (match === null) {
-      return []
+    const re = /process\.env\.(\w+)/g
+    const vars = []
+    for (const m of content.matchAll(re)) {
+      vars.push(m[1])
     }
 
-    return [match[1]]
+    return vars
   },
 
   /** Check if "variable" is present in the "filePath" */
