@@ -1,7 +1,11 @@
 language: node_js
-node_js:
-  - "node"
-  - "lts/*"
-  - "10"
+jobs:
+  include:
+  - node_js: "node"
+  - node_js: "lts/*"
+  - node_js: "12"
+  - node_js: "10"
+    env: SKIP_CLI=true
+
 script:
   - npm test

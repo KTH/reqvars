@@ -1,6 +1,7 @@
 const dotenv = require('dotenv')
 const fs = require('fs')
 const path = require('path')
+const { listVariables } = require('./utils')
 
 function throwIfMissing (variableName) {
   if (process.env[variableName] === undefined) {
@@ -10,6 +11,15 @@ function throwIfMissing (variableName) {
 
 module.exports = {
   throwIfMissing,
+
+  /**
+   * Find all environmental variables in the "filePaths"
+   */
+  findVariables (filePaths) {
+    return Array.from(new Set(
+      filePaths.map(listVariables).flat()
+    ))
+  },
 
   /**
    * Check if the environmental variables are set according to the
