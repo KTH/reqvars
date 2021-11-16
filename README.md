@@ -31,7 +31,7 @@ npm i @kth/reqvars
     require('@kth/reqvars').check()
     ```
 
-    It will compare the `process.env` object against your **specification file** and throw an error if something is missing. By default it will look at the `.env.in` file in the root of your project.
+    It will compare the `process.env` object against your **specification file** and throw an error if something is missing. By default it will look at the `.env` file in the root of your project.
 
 3. If you want to use another file as specification file, pass the path as argument:
 
